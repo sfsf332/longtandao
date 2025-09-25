@@ -1,0 +1,497 @@
+/* 页面容器样式 */
+.backgroundOverlay {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  opacity: 0.08;
+  z-index: -1;
+}
+
+/* 容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 头部 */
+.header {
+  background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+  color: white;
+  text-align: center;
+  padding: 60px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* 主要内容区域 */
+.main {
+  position: relative;
+  z-index: 2;
+  padding: 40px 0;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* 通用区块样式 */
+.section {
+  margin-bottom: 60px;
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(33, 147, 176, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(33, 147, 176, 0.15);
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  color: #2193b0;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.sectionTitleUnderline {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #6dd5ed, #2193b0);
+  border-radius: 2px;
+}
+
+/* 奖品区域 */
+.prizes {
+  margin-top: 0;
+}
+
+.prizesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.prizeItem {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.prizeItemTopBar {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #6dd5ed, #2193b0);
+}
+
+.prizeItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(33, 147, 176, 0.2);
+}
+
+.champion {
+  border-color: #FFD700;
+  background: linear-gradient(135deg, #fffde7 0%, #fffbe0 100%);
+}
+
+.runnerUp {
+  border-color: #C0C0C0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+}
+
+.thirdPlace {
+  border-color: #CD7F32;
+  background: linear-gradient(135deg, #fcf8e3 0%, #fcfcfc 100%);
+}
+
+.fourthPlace {
+  border-color: #4a90e2;
+}
+
+.fifthEighth {
+  border-color: #50c878;
+}
+
+.ninthSixteenth {
+  border-color: #9370db;
+}
+
+.prizeRank {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2193b0;
+  margin-bottom: 15px;
+  padding: 8px 16px;
+  background: rgba(33, 147, 176, 0.1);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.prizeImage {
+  margin: 20px 0;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f8f9fa;
+}
+
+.prizeImage img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.prizeItem:hover .prizeImage img {
+  transform: scale(1.05);
+}
+
+.prizeName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.prizeValue {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #00796b;
+  background: rgba(33, 147, 176, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* 报名信息 */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.infoItem {
+  background: #e0f7fa;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #2193b0;
+  transition: all 0.3s ease;
+}
+
+.infoItem:hover {
+  background: #b2ebf2;
+  transform: translateX(5px);
+}
+
+.infoItem h3 {
+  color: #00796b;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.infoItem p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* 赛制说明 */
+.formatDescription {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #666;
+  font-style: italic;
+}
+
+.tournamentBracketImage {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.tournamentBracketImage img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 2px solid #6dd5ed;
+}
+
+.rounds {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.round {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #6dd5ed, #2193b0);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.round:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(33, 147, 176, 0.3);
+}
+
+.roundNumber {
+  background: rgba(255,255,255,0.2);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.roundName {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* 赛程安排 */
+.scheduleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.scheduleItem {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.scheduleItem:hover {
+  border-color: #2193b0;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(33, 147, 176, 0.2);
+}
+
+.scheduleDate {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #00796b;
+  margin-bottom: 8px;
+}
+
+.scheduleTime {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.scheduleEvent {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 守擂规则 */
+.rulesContent p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.rulesContent p:last-child {
+  margin-bottom: 0;
+}
+
+/* 组织信息 */
+.organizerInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.organizerItem {
+  text-align: center;
+  padding: 20px;
+  background: #e0f7fa;
+  border-radius: 10px;
+  border-top: 4px solid #2193b0;
+}
+
+.organizerItem h3 {
+  color: #00796b;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.organizerItem p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.disclaimer {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  font-size: 1rem;
+  padding: 20px;
+  background: rgba(33, 147, 176, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid #2193b0;
+}
+
+/* 页脚 */
+.footer {
+  background: #2193b0;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .section {
+    padding: 25px;
+    margin-bottom: 40px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .prizesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .scheduleGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .organizerInfo {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .rounds {
+    gap: 10px;
+  }
+  
+  .round {
+    padding: 15px;
+  }
+  
+  .roundNumber {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .header {
+    padding: 40px 0;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 20px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  
+  .prizeImage {
+    height: 150px;
+  }
+}
