@@ -27,7 +27,7 @@ export default function ChessTournament() {
             <div className={styles.prizeItemTopBar}></div>
             <div className={styles.prizeRank}>冠军</div>
             <div className={styles.prizeImage}>
-              <Image src="/s1/No1.jpg" alt="纳万福芭提雅香米10kg" width={200} height={200} />
+              <Image src="https://youke1.picui.cn/s1/2025/09/26/68d64cd565ee1.jpg" alt="纳万福芭提雅香米10kg" width={200} height={200} />
             </div>
             <div className={styles.prizeName}>纳万福芭提雅香米10kg</div>
             <div className={styles.prizeValue}>价值 ￥99</div>
@@ -36,7 +36,7 @@ export default function ChessTournament() {
             <div className={styles.prizeItemTopBar}></div>
             <div className={styles.prizeRank}>亚军</div>
             <div className={styles.prizeImage}>
-              <Image src="/s1/No2.jpg" alt="盛洲非转基因葵花籽油5L" width={200} height={200} />
+              <Image src="https://youke1.picui.cn/s1/2025/09/26/68d64cd6136dd.jpg" alt="盛洲非转基因葵花籽油5L" width={200} height={200} />
             </div>
             <div className={styles.prizeName}>盛洲非转基因葵花籽油5L</div>
             <div className={styles.prizeValue}>价值 ￥69.9</div>
@@ -45,7 +45,7 @@ export default function ChessTournament() {
             <div className={styles.prizeItemTopBar}></div>
             <div className={styles.prizeRank}>季军</div>
             <div className={styles.prizeImage}>
-              <Image src="/s1/No3.jpg" alt="立白洗衣大礼包" width={200} height={200} />
+              <Image src="https://youke1.picui.cn/s1/2025/09/26/68d64cd5ed47d.jpg" alt="立白洗衣大礼包" width={200} height={200} />
             </div>
             <div className={styles.prizeName}>立白洗衣大礼包</div>
             <div className={styles.prizeValue}>价值 ￥50</div>
@@ -54,7 +54,7 @@ export default function ChessTournament() {
             <div className={styles.prizeItemTopBar}></div>
             <div className={styles.prizeRank}>第4名</div>
             <div className={styles.prizeImage}>
-              <Image src="/s1/No4.jpg" alt="金蝶手拍拉面*2" width={200} height={200} />
+              <Image src="https://youke1.picui.cn/s1/2025/09/26/68d64cd5e559c.jpg" alt="金蝶手拍拉面*2" width={200} height={200} />
             </div>
             <div className={styles.prizeName}>金蝶手拍拉面*2</div>
             <div className={styles.prizeValue}>价值 ￥30</div>
@@ -63,16 +63,15 @@ export default function ChessTournament() {
             <div className={styles.prizeItemTopBar}></div>
             <div className={styles.prizeRank}>第5~8名</div>
             <div className={styles.prizeImage}>
-              <Image src="/s1/No5.jpg" alt="超恩528系列卷纸*1" width={200} height={200} />
+              <Image src="https://youke1.picui.cn/s1/2025/09/26/68d64cd5de267.jpg" alt="超恩528系列卷纸*1" width={200} height={200} />
             </div>
             <div className={styles.prizeName}>超恩528系列卷纸*1</div>
             <div className={styles.prizeValue}>价值 ￥15</div>
           </div>
           <div className={`${styles.prizeItem} ${styles.ninthSixteenth}`}>
-            <div className={styles.prizeItemTopBar}></div>
             <div className={styles.prizeRank}>第9~16名</div>
             <div className={styles.prizeImage}>
-              <Image src="/s1/No6.jpg" alt="厨邦金品生抽1.25L" width={200} height={200} />
+              <Image src="https://youke1.picui.cn/s1/2025/09/26/68d64cdb81ec5.jpg" alt="厨邦金品生抽1.25L" width={200} height={200} />
             </div>
             <div className={styles.prizeName}>厨邦金品生抽1.25L</div>
             <div className={styles.prizeValue}>价值 ￥9.9</div>
