@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import styles from './page.module.css';
+import VideoController from './components/VideoController';
+import GallerySection from './components/GallerySection';
 
 export default function ChessTournament() {
   return (
@@ -18,6 +20,113 @@ export default function ChessTournament() {
           <p className={styles.subtitle}>DAO龙潭数字游民基地主办</p>
         </div>
       </header>
+
+      {/* 大赛风采 */}
+      <GallerySection />
+
+      {/* 大赛实况 */}
+      <section className={`${styles.section} ${styles.liveVideos}`}>
+        <h2 className={styles.sectionTitle}>大赛实况<div className={styles.sectionTitleUnderline}></div></h2>
+        <div className={styles.videosGrid}>
+          <div className={styles.videoItem}>
+            <div className={styles.videoContainer}>
+              <video 
+                className={styles.videoPlayer} 
+                preload="metadata"
+                controls
+                playsInline
+              >
+                <source src="/video/1.mp4" type="video/mp4" />
+                您的浏览器不支持视频播放。
+              </video>
+              <VideoController />
+              
+              <div className={styles.videoOverlay}>
+                <div className={styles.playButton}>
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                    <path d="M23 18L23 42L42 30L23 18Z" fill="#2193b0"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div className={styles.videoTitle}>精彩对弈瞬间</div>
+            <div className={styles.videoDescription}>记录选手们激烈对弈的精彩时刻</div>
+          </div>
+          
+          <div className={styles.videoItem}>
+            <div className={styles.videoContainer}>
+              <video 
+                className={styles.videoPlayer} 
+                preload="metadata"
+                controls
+                playsInline
+              >
+                <source src="/video/2.mp4" type="video/mp4" />
+                您的浏览器不支持视频播放。
+              </video>
+              <div className={styles.videoOverlay}>
+                <div className={styles.playButton}>
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                    <path d="M23 18L23 42L42 30L23 18Z" fill="#2193b0"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div className={styles.videoTitle}>赛场风云</div>
+            <div className={styles.videoDescription}>感受紧张激烈的比赛氛围</div>
+          </div>
+          
+          <div className={styles.videoItem}>
+            <div className={styles.videoContainer}>
+              <video 
+                className={styles.videoPlayer} 
+                preload="metadata"
+                controls
+                playsInline
+              >
+                <source src="/video/3.mp4" type="video/mp4" />
+                您的浏览器不支持视频播放。
+              </video>
+              <div className={styles.videoOverlay}>
+                <div className={styles.playButton}>
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                    <path d="M23 18L23 42L42 30L23 18Z" fill="#2193b0"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div className={styles.videoTitle}>高手过招</div>
+            <div className={styles.videoDescription}>选手们智慧的较量</div>
+          </div>
+          
+          <div className={styles.videoItem}>
+            <div className={styles.videoContainer}>
+              <video 
+                className={styles.videoPlayer} 
+                preload="metadata"
+                controls
+                playsInline
+              >
+                <source src="/video/4.mp4" type="video/mp4" />
+                您的浏览器不支持视频播放。
+              </video>
+              <div className={styles.videoOverlay}>
+                <div className={styles.playButton}>
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                    <path d="M23 18L23 42L42 30L23 18Z" fill="#2193b0"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div className={styles.videoTitle}>欢乐打酱油</div>
+            <div className={styles.videoDescription}>观众与棋手的有趣互动</div>
+          </div>
+        </div>
+      </section>
 
       {/* 实物奖品 */}
       <section className={`${styles.section} ${styles.prizes}`}>
@@ -200,6 +309,9 @@ export default function ChessTournament() {
           <p>&copy; 2025 DAO龙潭数字游民基地 版权所有</p>
         </div>
       </footer>
+      
+      {/* 功能组件 */}
+      <VideoController />
     </div>
   );
 }

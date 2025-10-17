@@ -349,6 +349,205 @@
   color: #333;
 }
 
+/* 大赛风采照片展示样式 - 水平滚动版本 */
+.galleryContainer {
+  position: relative;
+  margin-top: 30px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 20px 0;
+}
+
+.galleryGrid {
+  display: flex;
+  gap: 30px;
+  padding: 0 20px;
+  transition: transform 0.3s ease;
+  cursor: grab;
+  user-select: none;
+}
+
+.galleryGrid:active {
+  cursor: grabbing;
+}
+
+.galleryItem {
+  flex: 0 0 auto;
+  width: 380px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.galleryItem:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(33, 147, 176, 0.25);
+}
+
+.galleryImage {
+  position: relative;
+  overflow: hidden;
+  height: 280px;
+}
+
+.galleryImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galleryItem:hover .galleryImage img {
+  transform: scale(1.08);
+}
+
+.galleryCaption {
+  padding: 20px 25px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-top: 4px solid #6dd5ed;
+  position: relative;
+}
+
+.galleryCaption::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #6dd5ed, #2193b0);
+  border-radius: 2px;
+}
+
+/* 大赛实况视频样式 */
+.videosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.videoItem {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.videoItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #6dd5ed, #2193b0);
+}
+
+.videoItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(33, 147, 176, 0.2);
+  border-color: #2193b0;
+}
+
+.videoContainer {
+  position: relative;
+  margin: 20px 0;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+
+.videoPlayer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  background: #000;
+}
+
+.videoIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.videoOverlay.playing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.playButton:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* 视频播放状态样式 */
+.videoItem.playing .videoOverlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.videoItem.playing .videoPlayer {
+  cursor: pointer;
+}
+
+.videoContainer:hover .videoPlayer {
+  transform: scale(1.05);
+}
+
+.videoTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.videoDescription {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
 /* 守擂规则 */
 .rulesContent p {
   font-size: 1.1rem;
@@ -445,6 +644,11 @@
     gap: 20px;
   }
   
+  .videosGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
   .scheduleGrid {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -493,5 +697,42 @@
   
   .prizeImage {
     height: 150px;
+  }
+  
+  .galleryItem {
+    width: 320px;
+  }
+  
+  .galleryImage {
+    height: 240px;
+  }
+  
+  .galleryCaption {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+  
+  .videoContainer {
+    height: 225px;
+  }
+}
+
+@media (max-width: 480px) {
+  .galleryItem {
+    width: 280px;
+  }
+  
+  .galleryImage {
+    height: 200px;
+  }
+  
+  .galleryCaption {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .galleryGrid {
+    gap: 20px;
+    padding: 0 15px;
   }
 }
