@@ -173,16 +173,16 @@ export default function VideoController() {
     const svg = playButton.querySelector('svg');
     
     if (state === 'pause') {
-      // 暂停图标
+      // 暂停图标 - 几乎透明
       svg.innerHTML = `
         <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.01)"/>
         <rect x="22" y="18" width="6" height="24" fill="rgba(255,255,255,0.1)"/>
         <rect x="32" y="18" width="6" height="24" fill="rgba(255,255,255,0.1)"/>
       `;
     } else {
-      // 播放图标
+      // 播放图标 - 降低透明度
       svg.innerHTML = `
-        <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+        <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.3)"/>
         <path d="M23 18L23 42L42 30L23 18Z" fill="#2193b0"/>
       `;
     }
