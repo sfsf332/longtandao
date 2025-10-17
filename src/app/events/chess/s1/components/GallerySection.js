@@ -21,6 +21,7 @@ export default function GallerySection() {
   const totalWidthRef = useRef(0);
   const containerWidthRef = useRef(0);
   const seamlessOffsetRef = useRef(0);
+  const autoScrollSpeedRef = useRef(2); // 优化自动滚动速度
 
   useEffect(() => {
     const galleryGrid = galleryGridRef.current;
@@ -41,18 +42,23 @@ export default function GallerySection() {
     };
 
     const setTransform = (value) => {
+      // 更新尺寸（防止窗口大小变化）
       calculateDimensions();
       
       const maxScroll = -(totalWidthRef.current - containerWidthRef.current);
       
       if (isInfiniteLoopRef.current && !isTransitioningRef.current) {
+        // 实现真正的无缝循环：当滚动到边界时，无缝跳转到另一端
         if (value > 0) {
+          // 向右滚动超出边界，无缝跳转到左端
           value = maxScroll + (value % totalWidthRef.current);
         } else if (value < maxScroll) {
+          // 向左滚动超出边界，无缝跳转到右端
           const overflow = Math.abs(value - maxScroll);
           value = -(overflow % totalWidthRef.current);
         }
       } else if (!isTransitioningRef.current) {
+        // 普通模式：严格限制边界
         value = Math.max(maxScroll, Math.min(0, value));
       }
       
@@ -62,10 +68,14 @@ export default function GallerySection() {
     const startAutoScroll = () => {
       autoScrollIntervalRef.current = setInterval(() => {
         if (!isDraggingRef.current && !isTransitioningRef.current) {
+          // 清除CSS transition，确保平滑的自动滚动
+          galleryGrid.style.transition = '';
           const currentTransform = getCurrentTransform();
-          setTransform(currentTransform - 2);
+          
+          // 始终向左滚动，setTransform会自动处理边界循环
+          setTransform(currentTransform - autoScrollSpeedRef.current);
         }
-      }, 50);
+      }, 50); // 优化间隔时间，提供更平滑的滚动
     };
 
     const stopAutoScroll = () => {
@@ -79,14 +89,20 @@ export default function GallerySection() {
       }
     };
 
+    const cancelMomentumAnimation = () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+    };
+
     const startMomentumScroll = () => {
+      // 如果动量太小，直接跳过
       if (Math.abs(momentumRef.current) < 0.1) {
         return;
       }
       
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
+      cancelMomentumAnimation();
       
       const animate = () => {
         if (Math.abs(momentumRef.current) < 0.05) {
@@ -94,9 +110,12 @@ export default function GallerySection() {
           return;
         }
         
+        // 清除CSS transition，确保平滑的动量滚动
+        galleryGrid.style.transition = '';
         const currentTransform = getCurrentTransform();
         setTransform(currentTransform + momentumRef.current * 20);
         
+        // 应用摩擦力
         momentumRef.current *= 0.92;
         
         animationFrameRef.current = requestAnimationFrame(animate);
@@ -118,12 +137,14 @@ export default function GallerySection() {
       startXRef.current = e.pageX - galleryGrid.offsetLeft;
       scrollLeftRef.current = getCurrentTransform();
       galleryGrid.style.cursor = 'grabbing';
+      // 清除任何过渡效果和动画
       galleryGrid.style.transition = '';
       isTransitioningRef.current = false;
       momentumRef.current = 0;
       lastMoveTimeRef.current = Date.now();
       lastMoveXRef.current = e.pageX;
       stopAutoScroll();
+      cancelMomentumAnimation();
     };
 
     const handleMouseMove = (e) => {
@@ -132,8 +153,9 @@ export default function GallerySection() {
       
       const currentTime = Date.now();
       const currentX = e.pageX - galleryGrid.offsetLeft;
-      const walk = (currentX - startXRef.current) * 1.8;
+      const walk = (currentX - startXRef.current) * 1.8; // 优化滚动敏感度
       
+      // 计算动量
       if (currentTime - lastMoveTimeRef.current > 0) {
         momentumRef.current = (e.pageX - lastMoveXRef.current) / (currentTime - lastMoveTimeRef.current);
       }
@@ -157,12 +179,14 @@ export default function GallerySection() {
       isDraggingRef.current = true;
       startXRef.current = e.touches[0].pageX;
       scrollLeftRef.current = getCurrentTransform();
+      // 清除任何过渡效果和动画
       galleryGrid.style.transition = '';
       isTransitioningRef.current = false;
       momentumRef.current = 0;
       lastMoveTimeRef.current = Date.now();
       lastMoveXRef.current = e.touches[0].pageX;
       stopAutoScroll();
+      cancelMomentumAnimation();
     };
 
     const handleTouchMove = (e) => {
@@ -171,8 +195,9 @@ export default function GallerySection() {
       
       const currentTime = Date.now();
       const currentX = e.touches[0].pageX;
-      const walk = (currentX - startXRef.current) * 1.6;
+      const walk = (currentX - startXRef.current) * 1.6; // 优化触摸滚动敏感度
       
+      // 计算动量
       if (currentTime - lastMoveTimeRef.current > 0) {
         momentumRef.current = (currentX - lastMoveXRef.current) / (currentTime - lastMoveTimeRef.current);
       }
