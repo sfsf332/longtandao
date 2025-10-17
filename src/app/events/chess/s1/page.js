@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import styles from './page.module.css';
-import VideoController from './components/VideoController';
+import GalleryScrollerClass from './components/GalleryScrollerClass';
 import GallerySection from './components/GallerySection';
+import MobileCarousel from './components/MobileCarousel';
 
 export default function ChessTournament() {
   return (
@@ -23,6 +24,9 @@ export default function ChessTournament() {
 
       {/* 大赛风采 */}
       <GallerySection />
+      
+      {/* 移动端轮播 */}
+      <MobileCarousel />
 
       {/* 大赛实况 */}
       <section className={`${styles.section} ${styles.liveVideos}`}>
@@ -39,7 +43,6 @@ export default function ChessTournament() {
                 <source src="/video/1.mp4" type="video/mp4" />
                 您的浏览器不支持视频播放。
               </video>
-              <VideoController />
               
               <div className={styles.videoOverlay}>
                 <div className={styles.playButton}>
@@ -255,17 +258,17 @@ export default function ChessTournament() {
                 <div className={styles.scheduleEvent}>正赛（8进4）</div>
               </div>
               <div className={styles.scheduleItem}>
-                <div className={styles.scheduleDate}>9月28日</div>
-                <div className={styles.scheduleTime}>19:30-20:00</div>
+                <div className={styles.scheduleDate}>10月18日</div>
+                <div className={styles.scheduleTime}>17:30-18:00</div>
                 <div className={styles.scheduleEvent}>半决赛（4进2）</div>
               </div>
               <div className={styles.scheduleItem}>
-                <div className={styles.scheduleDate}>10月5日</div>
+                <div className={styles.scheduleDate}>10月18日</div>
                 <div className={styles.scheduleTime}>18:00-18:30</div>
                 <div className={styles.scheduleEvent}>季军争夺赛</div>
               </div>
               <div className={styles.scheduleItem}>
-                <div className={styles.scheduleDate}>10月5日</div>
+                <div className={styles.scheduleDate}>10月18日</div>
                 <div className={styles.scheduleTime}>18:45-20:15</div>
                 <div className={styles.scheduleEvent}>冠亚军争夺赛（3局2胜制）</div>
               </div>
@@ -311,7 +314,7 @@ export default function ChessTournament() {
       </footer>
       
       {/* 功能组件 */}
-      <VideoController />
+      <GalleryScrollerClass />
     </div>
   );
 }

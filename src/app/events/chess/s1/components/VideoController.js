@@ -175,9 +175,9 @@ export default function VideoController() {
     if (state === 'pause') {
       // 暂停图标
       svg.innerHTML = `
-        <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
-        <rect x="22" y="18" width="6" height="24" fill="#2193b0"/>
-        <rect x="32" y="18" width="6" height="24" fill="#2193b0"/>
+        <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.01)"/>
+        <rect x="22" y="18" width="6" height="24" fill="rgba(255,255,255,0.1)"/>
+        <rect x="32" y="18" width="6" height="24" fill="rgba(255,255,255,0.1)"/>
       `;
     } else {
       // 播放图标
